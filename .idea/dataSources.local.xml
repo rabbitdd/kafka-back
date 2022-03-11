@@ -6,7 +6,6 @@
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
       <user-name>postgres</user-name>
       <schema-mapping>
         <introspection-scope>
@@ -18,7 +17,6 @@
     </data-source>
     <data-source name="postgres@localhost" uuid="4e6f9cc3-a53d-42ad-8bd5-8c3a4cebd865">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
       <schema-mapping />
     </data-source>
   </component>

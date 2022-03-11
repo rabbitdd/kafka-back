@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7bb1f6d-21d6-44d9-8dde-7317d063b0a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d78c4df8-66fe-4a79-ad5c-7033d6c96ae8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d78c4df8-66fe-4a79-ad5c-7033d6c96ae8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d78c4df8-66fe-4a79-ad5c-7033d6c96ae8/storage_v2/_src_/database/database_name.z9arsA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d78c4df8-66fe-4a79-ad5c-7033d6c96ae8/storage_v2/_src_/database/database_name.z9arsA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/UserService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/controller/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/repository/UserRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +100,7 @@
       <workItem from="1646853998499" duration="2731000" />
       <workItem from="1646903355141" duration="3081000" />
       <workItem from="1646926708915" duration="4757000" />
+      <workItem from="1646999609838" duration="2701000" />
     </task>
     <servers />
   </component>

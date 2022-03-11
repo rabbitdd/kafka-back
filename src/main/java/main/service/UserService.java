@@ -1,4 +1,4 @@
-package main;
+package main.service;
 
 import main.entity.User;
 import main.repository.UserRepository;
@@ -10,8 +10,11 @@ import java.math.BigInteger;
 @Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public String getUserName(Long id) {
         User user = userRepository.getUserById(id);
