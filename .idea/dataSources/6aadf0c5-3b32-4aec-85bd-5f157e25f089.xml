@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="PostgreSQL - database_name@localhost">
+<dataSource name="kafka-serverside/Hibernate">
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.31">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>2277</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+12937||-9223372036854775808|c|G
+12937||10|c|G
+12937||10|C|G
+12937||10|T|G</Grants>
+      <IntrospectionStateNumber>2217</IntrospectionStateNumber>
       <ServerVersion>10.20</ServerVersion>
       <StartupTime>1647336002</StartupTime>
       <TimeZones>true ACDT
@@ -797,7 +805,7 @@ true posixrules
 12648||10|C|G
 12648||-9223372036854775808|U|G
 12648||10|U|G</Grants>
-      <IntrospectionStateNumber>2278</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2218</IntrospectionStateNumber>
       <ObjectId>16660</ObjectId>
       <Relations>sequence|table|18720|18722|1
 sequence|table|18731|18733|1
@@ -4052,7 +4060,7 @@ sequence|table|18946|18948|1
     </schema>
     <schema id="244" parent="2" name="public">
       <Current>1</Current>
-      <IntrospectionStateNumber>2278</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2218</IntrospectionStateNumber>
       <ObjectId>18719</ObjectId>
       <StateNumber>2078</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4424,74 +4432,74 @@ sequence|table|18946|18948|1
       <StateNumber>2091</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="290" parent="244" name="bookkeeping">
+    <table id="290" parent="244" name="Bookkeeping">
       <ObjectId>18875</ObjectId>
-      <StateNumber>2263</StateNumber>
+      <StateNumber>2098</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="291" parent="244" name="checker">
+    <table id="291" parent="244" name="Checker">
       <ObjectId>18841</ObjectId>
-      <StateNumber>2275</StateNumber>
+      <StateNumber>2096</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="292" parent="244" name="document">
+    <table id="292" parent="244" name="Document">
       <ObjectId>18786</ObjectId>
-      <StateNumber>2219</StateNumber>
+      <StateNumber>2092</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="293" parent="244" name="instance">
+    <table id="293" parent="244" name="Instance">
       <ObjectId>18741</ObjectId>
-      <StateNumber>2271</StateNumber>
+      <StateNumber>2099</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="294" parent="244" name="official">
+    <table id="294" parent="244" name="Official">
       <ObjectId>18911</ObjectId>
-      <StateNumber>2267</StateNumber>
+      <StateNumber>2101</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="295" parent="244" name="parameters">
+    <table id="295" parent="244" name="Parameters">
       <ObjectId>18733</ObjectId>
-      <StateNumber>2259</StateNumber>
+      <StateNumber>2101</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="296" parent="244" name="privileges">
+    <table id="296" parent="244" name="Privileges">
       <ObjectId>18722</ObjectId>
-      <StateNumber>2255</StateNumber>
+      <StateNumber>2090</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="297" parent="244" name="production">
+    <table id="297" parent="244" name="Production">
       <ObjectId>18889</ObjectId>
-      <StateNumber>2251</StateNumber>
+      <StateNumber>2098</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="298" parent="244" name="prosecutor">
+    <table id="298" parent="244" name="Prosecutor">
       <ObjectId>18823</ObjectId>
-      <StateNumber>2247</StateNumber>
+      <StateNumber>2095</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="299" parent="244" name="queue">
+    <table id="299" parent="244" name="Queue">
       <ObjectId>18929</ObjectId>
-      <StateNumber>2223</StateNumber>
+      <StateNumber>2100</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="300" parent="244" name="schedule">
+    <table id="300" parent="244" name="Schedule">
       <ObjectId>18812</ObjectId>
-      <StateNumber>2243</StateNumber>
+      <StateNumber>2099</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="301" parent="244" name="signatures">
+    <table id="301" parent="244" name="Signatures">
       <ObjectId>18948</ObjectId>
-      <StateNumber>2239</StateNumber>
+      <StateNumber>2101</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="302" parent="244" name="status">
+    <table id="302" parent="244" name="Status">
       <ObjectId>18855</ObjectId>
-      <StateNumber>2227</StateNumber>
+      <StateNumber>2096</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="303" parent="244" name="type_of_document">
+    <table id="303" parent="244" name="TypeOfDocument">
       <ObjectId>18752</ObjectId>
-      <StateNumber>2235</StateNumber>
+      <StateNumber>2098</StateNumber>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="304" parent="244" name="users">
@@ -4672,6 +4680,7 @@ sequence|table|18946|18948|1
     </column>
     <foreign-key id="345" parent="290" name="Bookkeeping_schedule_id_fkey">
       <ColNames>schedule_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18882</ObjectId>
       <OnDelete>set-null</OnDelete>
       <RefColNames>schedule_id</RefColNames>
@@ -4679,7 +4688,7 @@ sequence|table|18946|18948|1
       <RefKeyName>Schedule_pkey</RefKeyName>
       <StateNumber>2097</StateNumber>
       <RefTableId>18812</RefTableId>
-      <RefTableName>schedule</RefTableName>
+      <RefTableName>Schedule</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="346" parent="290" name="Bookkeeping_pkey">
@@ -4695,6 +4704,7 @@ sequence|table|18946|18948|1
     </index>
     <key id="347" parent="290" name="Bookkeeping_pkey">
       <ColNames>bookkeeping_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18881</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2097</StateNumber>
@@ -4737,6 +4747,7 @@ sequence|table|18946|18948|1
     </column>
     <foreign-key id="353" parent="291" name="Checker_prosecutor_id_fkey">
       <ColNames>prosecutor_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18848</ObjectId>
       <OnDelete>restrict</OnDelete>
       <RefColNames>prosecutor_id</RefColNames>
@@ -4744,7 +4755,7 @@ sequence|table|18946|18948|1
       <RefKeyName>Prosecutor_pkey</RefKeyName>
       <StateNumber>2095</StateNumber>
       <RefTableId>18823</RefTableId>
-      <RefTableName>prosecutor</RefTableName>
+      <RefTableName>Prosecutor</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="354" parent="291" name="Checker_pkey">
@@ -4760,6 +4771,7 @@ sequence|table|18946|18948|1
     </index>
     <key id="355" parent="291" name="Checker_pkey">
       <ColNames>checker_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18847</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2095</StateNumber>
@@ -4822,17 +4834,19 @@ date_of_issue</ColNames>
     </column>
     <foreign-key id="364" parent="292" name="Document_type_of_document_id_fkey">
       <ColNames>type_of_document_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18800</ObjectId>
       <RefColNames>type_of_document_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>TypeOfDocument_pkey</RefKeyName>
       <StateNumber>2092</StateNumber>
       <RefTableId>18752</RefTableId>
-      <RefTableName>document</RefTableName>
+      <RefTableName>TypeOfDocument</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="365" parent="292" name="Document_user_id_fkey">
       <ColNames>user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18795</ObjectId>
       <OnDelete>restrict</OnDelete>
       <RefColNames>user_id</RefColNames>
@@ -4845,6 +4859,7 @@ date_of_issue</ColNames>
     </foreign-key>
     <foreign-key id="366" parent="292" name="Document_parameters_id_fkey">
       <ColNames>parameters_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18805</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>parameters_id</RefColNames>
@@ -4852,13 +4867,14 @@ date_of_issue</ColNames>
       <RefKeyName>Parameters_pkey</RefKeyName>
       <StateNumber>2092</StateNumber>
       <RefTableId>18733</RefTableId>
-      <RefTableName>document</RefTableName>
+      <RefTableName>Parameters</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="367" parent="292" name="Document_pkey">
       <ClassIds>3124</ClassIds>
       <ColNames>document_id</ColNames>
       <CollationIds>0</CollationIds>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18791</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2092</StateNumber>
@@ -4869,6 +4885,7 @@ date_of_issue</ColNames>
       <ClassIds>3124</ClassIds>
       <ColNames>parameters_id</ColNames>
       <CollationIds>0</CollationIds>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18793</ObjectId>
       <StateNumber>2092</StateNumber>
       <Unique>1</Unique>
@@ -4876,6 +4893,7 @@ date_of_issue</ColNames>
     </index>
     <key id="369" parent="292" name="Document_pkey">
       <ColNames>document_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18792</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2092</StateNumber>
@@ -4883,6 +4901,7 @@ date_of_issue</ColNames>
     </key>
     <key id="370" parent="292" name="Document_parameters_id_key">
       <ColNames>parameters_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18794</ObjectId>
       <StateNumber>2092</StateNumber>
       <UnderlyingIndexId>18793</UnderlyingIndexId>
@@ -4915,6 +4934,7 @@ date_of_issue</ColNames>
     </index>
     <key id="374" parent="293" name="Instance_pkey">
       <ColNames>instance_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18749</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2089</StateNumber>
@@ -4963,6 +4983,7 @@ date_of_issue</ColNames>
     </column>
     <foreign-key id="381" parent="294" name="Official_instance_id_fkey">
       <ColNames>instance_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18917</ObjectId>
       <OnDelete>restrict</OnDelete>
       <RefColNames>instance_id</RefColNames>
@@ -4970,11 +4991,12 @@ date_of_issue</ColNames>
       <RefKeyName>Instance_pkey</RefKeyName>
       <StateNumber>2099</StateNumber>
       <RefTableId>18741</RefTableId>
-      <RefTableName>official</RefTableName>
+      <RefTableName>Instance</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="382" parent="294" name="Official_schedule_id_fkey">
       <ColNames>schedule_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18922</ObjectId>
       <OnDelete>set-null</OnDelete>
       <RefColNames>schedule_id</RefColNames>
@@ -4982,7 +5004,7 @@ date_of_issue</ColNames>
       <RefKeyName>Schedule_pkey</RefKeyName>
       <StateNumber>2099</StateNumber>
       <RefTableId>18812</RefTableId>
-      <RefTableName>schedule</RefTableName>
+      <RefTableName>Schedule</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="383" parent="294" name="Official_pkey">
@@ -4998,6 +5020,7 @@ date_of_issue</ColNames>
     </index>
     <key id="384" parent="294" name="Official_pkey">
       <ColNames>official_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18916</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2099</StateNumber>
@@ -5031,6 +5054,7 @@ date_of_issue</ColNames>
     </index>
     <key id="388" parent="295" name="Parameters_pkey">
       <ColNames>parameters_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18738</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2088</StateNumber>
@@ -5096,6 +5120,7 @@ date_of_issue</ColNames>
     </index>
     <key id="397" parent="296" name="Privileges_pkey">
       <ColNames>privileges_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18730</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2087</StateNumber>
@@ -5152,24 +5177,26 @@ date_of_issue</ColNames>
     </column>
     <foreign-key id="405" parent="297" name="Production_bookkeeping_id_fkey">
       <ColNames>bookkeeping_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18899</ObjectId>
       <RefColNames>bookkeeping_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>Bookkeeping_pkey</RefKeyName>
       <StateNumber>2098</StateNumber>
       <RefTableId>18875</RefTableId>
-      <RefTableName>production</RefTableName>
+      <RefTableName>Bookkeeping</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="406" parent="297" name="Production_type_of_document_id_fkey">
       <ColNames>type_of_document_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18904</ObjectId>
       <RefColNames>type_of_document_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>TypeOfDocument_pkey</RefKeyName>
       <StateNumber>2098</StateNumber>
       <RefTableId>18752</RefTableId>
-      <RefTableName>type_of_document</RefTableName>
+      <RefTableName>TypeOfDocument</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="407" parent="297" name="Production_pkey">
@@ -5185,6 +5212,7 @@ date_of_issue</ColNames>
     </index>
     <key id="408" parent="297" name="Production_pkey">
       <ColNames>production_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18898</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2098</StateNumber>
@@ -5213,6 +5241,7 @@ date_of_issue</ColNames>
     </column>
     <foreign-key id="412" parent="298" name="Prosecutor_instance_id_fkey">
       <ColNames>instance_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18829</ObjectId>
       <OnDelete>restrict</OnDelete>
       <RefColNames>instance_id</RefColNames>
@@ -5220,11 +5249,12 @@ date_of_issue</ColNames>
       <RefKeyName>Instance_pkey</RefKeyName>
       <StateNumber>2094</StateNumber>
       <RefTableId>18741</RefTableId>
-      <RefTableName>prosecutor</RefTableName>
+      <RefTableName>Instance</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="413" parent="298" name="Prosecutor_schedule_id_fkey">
       <ColNames>schedule_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18834</ObjectId>
       <OnDelete>set-null</OnDelete>
       <RefColNames>schedule_id</RefColNames>
@@ -5232,7 +5262,7 @@ date_of_issue</ColNames>
       <RefKeyName>Schedule_pkey</RefKeyName>
       <StateNumber>2094</StateNumber>
       <RefTableId>18812</RefTableId>
-      <RefTableName>schedule</RefTableName>
+      <RefTableName>Schedule</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="414" parent="298" name="Prosecutor_pkey">
@@ -5248,6 +5278,7 @@ date_of_issue</ColNames>
     </index>
     <key id="415" parent="298" name="Prosecutor_pkey">
       <ColNames>prosecutor_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18828</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2094</StateNumber>
@@ -5297,17 +5328,19 @@ date_of_issue</ColNames>
     </column>
     <foreign-key id="422" parent="299" name="Queue_official_id_fkey">
       <ColNames>official_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18936</ObjectId>
       <RefColNames>official_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>Official_pkey</RefKeyName>
       <StateNumber>2100</StateNumber>
       <RefTableId>18911</RefTableId>
-      <RefTableName>queue</RefTableName>
+      <RefTableName>Official</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="423" parent="299" name="Queue_user_id_fkey">
       <ColNames>user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18941</ObjectId>
       <RefColNames>user_id</RefColNames>
       <RefColPositions>1</RefColPositions>
@@ -5330,6 +5363,7 @@ date_of_issue</ColNames>
     </index>
     <key id="425" parent="299" name="Queue_pkey">
       <ColNames>queue_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18935</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2100</StateNumber>
@@ -5389,6 +5423,7 @@ time_finish</ColNames>
     </index>
     <key id="433" parent="300" name="Schedule_pkey">
       <ColNames>schedule_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18820</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2093</StateNumber>
@@ -5425,17 +5460,19 @@ time_finish</ColNames>
     </column>
     <foreign-key id="438" parent="301" name="Signatures_official_id_fkey">
       <ColNames>official_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18954</ObjectId>
       <RefColNames>official_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>Official_pkey</RefKeyName>
       <StateNumber>2101</StateNumber>
       <RefTableId>18911</RefTableId>
-      <RefTableName>signatures</RefTableName>
+      <RefTableName>Official</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="439" parent="301" name="Signatures_parameters_id_fkey">
       <ColNames>parameters_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18959</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>parameters_id</RefColNames>
@@ -5443,7 +5480,7 @@ time_finish</ColNames>
       <RefKeyName>Parameters_pkey</RefKeyName>
       <StateNumber>2101</StateNumber>
       <RefTableId>18733</RefTableId>
-      <RefTableName>signatures</RefTableName>
+      <RefTableName>Parameters</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="440" parent="301" name="Signatures_pkey">
@@ -5459,6 +5496,7 @@ time_finish</ColNames>
     </index>
     <key id="441" parent="301" name="Signatures_pkey">
       <ColNames>signature_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18953</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2101</StateNumber>
@@ -5495,6 +5533,7 @@ time_finish</ColNames>
     </column>
     <foreign-key id="446" parent="302" name="Status_parameter_id_fkey">
       <ColNames>parameter_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18863</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>parameters_id</RefColNames>
@@ -5502,18 +5541,19 @@ time_finish</ColNames>
       <RefKeyName>Parameters_pkey</RefKeyName>
       <StateNumber>2096</StateNumber>
       <RefTableId>18733</RefTableId>
-      <RefTableName>status</RefTableName>
+      <RefTableName>Parameters</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="447" parent="302" name="Status_checker_id_fkey">
       <ColNames>checker_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18868</ObjectId>
       <RefColNames>checker_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>Checker_pkey</RefKeyName>
       <StateNumber>2096</StateNumber>
       <RefTableId>18841</RefTableId>
-      <RefTableName>status</RefTableName>
+      <RefTableName>Checker</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="448" parent="302" name="Status_pkey">
@@ -5539,6 +5579,7 @@ time_finish</ColNames>
     </index>
     <key id="450" parent="302" name="Status_pkey">
       <ColNames>status_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18860</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2096</StateNumber>
@@ -5546,6 +5587,7 @@ time_finish</ColNames>
     </key>
     <key id="451" parent="302" name="Status_parameter_id_key">
       <ColNames>parameter_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18862</ObjectId>
       <StateNumber>2096</StateNumber>
       <UnderlyingIndexId>18861</UnderlyingIndexId>
@@ -5580,17 +5622,19 @@ time_finish</ColNames>
     </column>
     <foreign-key id="456" parent="303" name="TypeOfDocument_privileges_id_fkey">
       <ColNames>privileges_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18763</ObjectId>
       <RefColNames>privileges_id</RefColNames>
       <RefColPositions>1</RefColPositions>
       <RefKeyName>Privileges_pkey</RefKeyName>
       <StateNumber>2090</StateNumber>
       <RefTableId>18722</RefTableId>
-      <RefTableName>type_of_document</RefTableName>
+      <RefTableName>Privileges</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <foreign-key id="457" parent="303" name="TypeOfDocument_instance_id_fkey">
       <ColNames>instance_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18758</ObjectId>
       <OnDelete>restrict</OnDelete>
       <RefColNames>instance_id</RefColNames>
@@ -5598,7 +5642,7 @@ time_finish</ColNames>
       <RefKeyName>Instance_pkey</RefKeyName>
       <StateNumber>2090</StateNumber>
       <RefTableId>18741</RefTableId>
-      <RefTableName>type_of_document</RefTableName>
+      <RefTableName>Instance</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="458" parent="303" name="TypeOfDocument_pkey">
@@ -5614,6 +5658,7 @@ time_finish</ColNames>
     </index>
     <key id="459" parent="303" name="TypeOfDocument_pkey">
       <ColNames>type_of_document_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <ObjectId>18757</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2090</StateNumber>
@@ -5695,7 +5740,7 @@ time_finish</ColNames>
       <RefKeyName>Instance_pkey</RefKeyName>
       <StateNumber>2091</StateNumber>
       <RefTableId>18741</RefTableId>
-      <RefTableName>users</RefTableName>
+      <RefTableName>Instance</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
     <index id="471" parent="304" name="users_pkey">
