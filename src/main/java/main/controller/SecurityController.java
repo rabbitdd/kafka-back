@@ -42,6 +42,6 @@ public class SecurityController {
     }
     @GetMapping("/auth")
     public String getAuth() {
-        return "auth";
+        return "{\"auth\": \"auth\"}";
     }
 }
