@@ -21,7 +21,7 @@ public class Document {
     private Long id;
 
     @Column(name = "type_of_document_id")
-    private String typeOfDocumentId;
+    private Long typeOfDocumentId;
 
     @Column(name = "user_id")
     private Long userId;

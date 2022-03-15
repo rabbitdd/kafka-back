@@ -6,6 +6,9 @@ import main.repository.QueueRepository;
 import main.repository.ScheduleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class QueueService {
 
@@ -24,5 +27,13 @@ public class QueueService {
 
     public Schedule getScheduleById(Long id) {
         return scheduleRepository.getScheduleById(id);
+    }
+
+    public List<Queue> getAllQueueByUserId(Long id) {
+        List<Queue> queues = queueRepository.getQueuesByUserId(id);
+        if (queues != null) {
+            return queues;
+        }
+        return new ArrayList<>();
     }
 }
