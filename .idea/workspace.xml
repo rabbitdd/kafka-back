@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7bb1f6d-21d6-44d9-8dde-7317d063b0a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/controller/DocumentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/controller/DocumentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/controller/QueueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/controller/QueueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/entity/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/entity/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/repository/DocumentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/repository/DocumentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/repository/QueueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/repository/QueueRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/repository/TypeOfDocumentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/repository/TypeOfDocumentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/service/DocumentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/QueueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/service/QueueService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/controller/DocumentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/controller/DocumentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/controller/QueueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/controller/QueueController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/entity/Document.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/entity/Document.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/repository/DocumentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/repository/DocumentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/repository/QueueRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/repository/QueueRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/repository/TypeOfDocumentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/repository/TypeOfDocumentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/service/DocumentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/service/DocumentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/service/QueueService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/service/QueueService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/controller/SecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/controller/SecurityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/controller/SecurityController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +105,7 @@
       <workItem from="1646999609838" duration="2701000" />
       <workItem from="1647336771100" duration="1008000" />
       <workItem from="1647338601914" duration="9237000" />
+      <workItem from="1647359923917" duration="592000" />
     </task>
     <servers />
   </component>
