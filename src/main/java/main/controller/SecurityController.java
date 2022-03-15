@@ -5,10 +5,7 @@ import main.service.CustomerUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SecurityController {
@@ -18,12 +15,21 @@ public class SecurityController {
 
 
     @PostMapping("/auth")
-    public String getLoginPage(@RequestBody User user) {
-        System.out.println(user.toString());
+    public String getLoginPage(@RequestParam String login, @RequestParam String password) {
         System.out.println("****");
-        UserDetails securityUser = customerUserDetailService.loadUserByUsername(user.getLogin());
-        System.out.println("****");
-        return "true";
+        UserDetails securityUser = customerUserDetailService.loadUserByUsername(login);
+        if (securityUser != null) {
+            if (securityUser.getPassword().equals(password)) {
+                System.out.println("User exist");
+                return "true";
+            }
+            return "incorrectPassword";
+        }
+        else {
+            System.out.println("User doesn't exist");
+            System.out.println("POST request ... ");
+            return "false";
+        }
     }
 
     @PostMapping("/signUp")

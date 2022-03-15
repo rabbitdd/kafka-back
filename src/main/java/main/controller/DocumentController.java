@@ -1,6 +1,8 @@
 package main.controller;
 
 
+import main.entity.Document;
+import main.entity.TypeOfDocument;
 import main.repository.DocumentRepository;
 import main.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/document")
@@ -56,5 +60,16 @@ public class DocumentController {
     String getBookkeeping(@RequestParam Long id) {
         return documentService.getBookkeepingById(id).toString();
     }
+
+    @GetMapping("/document/getAll")
+    List<Document> getDocumentsById(@RequestParam Long id) {
+        return documentService.getAllDocumentsByUserId(id);
+    }
+
+    @GetMapping("/document/getTypeOfDocumentByUserIdWhichNotExist")
+    List<TypeOfDocument> getTypeOfDocumentByUserIdWhichNotExist(@RequestParam Long id) {
+        return documentService.getNameTypeOfDocumentsWhichNotExistInDocuments(id);
+    }
+
 
 }

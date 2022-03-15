@@ -24,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mishanin" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -123,6 +128,7 @@
       <workItem from="1647346057479" duration="2570000" />
       <workItem from="1647336771100" duration="1008000" />
       <workItem from="1647338601914" duration="9237000" />
+      <workItem from="1647359923917" duration="592000" />
     </task>
     <servers />
   </component>
