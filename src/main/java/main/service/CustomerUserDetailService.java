@@ -39,10 +39,10 @@ public class CustomerUserDetailService implements UserDetailsService {
         try {
             user.setRole("USER");
             userRepository.save(user);
-            return "add";
+            return "{\"token\": \"true\"}";
         } catch (Exception e) {
             e.printStackTrace();
+            return "{\"token\": \"err\"}";
         }
-        return "notAdd";
     }
 }

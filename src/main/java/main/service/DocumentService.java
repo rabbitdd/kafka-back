@@ -4,6 +4,7 @@ import main.entity.*;
 import main.repository.*;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,5 +93,15 @@ public class DocumentService {
             }
         }
         return ans;
+    }
+
+    public String addDocument(Document document) {
+        try {
+            documentRepository.save(document);
+            return "{\"token\": \"true\"}";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "{\"token\": \"err\"}";
+        }
     }
 }

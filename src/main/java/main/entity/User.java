@@ -1,15 +1,16 @@
 package main.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
 
-@Entity(name = "Users")
+@Entity(name = "users")
 public class User {
 
     @Id
     @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public void setId(Long id) {
@@ -134,8 +135,9 @@ public class User {
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, name, surname);
+                "Customer[id=%d, firstName='%s', lastName='%s, money=%s, active='%s', time_result='%s', instance_id=%s" +
+                        "]",
+                id, name, surname, money, active, time_result, instance_id);
     }
 
     public String getName() {
@@ -145,4 +147,6 @@ public class User {
     public String getSurname() {
         return surname;
     }
+
+
 }

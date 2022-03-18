@@ -35,12 +35,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         String point2Test = "/reg";
         String point3Test = "/adddot";
         String point4Test = "/checker";
+        String point5Test = "/addDocument";
         httpSecurity.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(point1Test).permitAll()
                 .antMatchers(point2Test).permitAll()
                 .antMatchers(point3Test).permitAll()
                 .antMatchers(point4Test).permitAll()
+                .antMatchers(point5Test).permitAll()
                 .and().httpBasic()
                 .and().sessionManagement().disable();
     }

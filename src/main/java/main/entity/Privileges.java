@@ -3,9 +3,7 @@ package main.entity;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity(name = "Privileges")
@@ -16,6 +14,7 @@ import java.util.Objects;
 public class Privileges {
     @Id
     @Column(name = "privileges_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "sale")

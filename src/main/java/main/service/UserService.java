@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -22,6 +23,15 @@ public class UserService {
             return user.getName();
         }
         return "test fail";
+    }
+
+    public Long getUserId(String login){
+        Optional<User> userOptional = userRepository.getUserByLogin(login);
+        if(userOptional.isPresent()){
+            User user = userOptional.get();
+            return user.getId();
+        }
+        return (long) -1;
     }
 
 
