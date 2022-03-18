@@ -93,6 +93,11 @@ public class DocumentController {
         return backVals;
     }
 
+    @GetMapping("/getPod")
+    List<BackValsTypes> getPodpicy(@RequestParam("login") String id) {
+
+    }
+
     @GetMapping("/document/getTypeOfDocumentByUserIdWhichNotExist")
     List<TypeOfDocument> getTypeOfDocumentByUserIdWhichNotExist(@RequestParam Long id) {
         return documentService.getNameTypeOfDocumentsWhichNotExistInDocuments(id);
