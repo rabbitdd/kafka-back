@@ -1,12 +1,7 @@
 package main.controller;
 
-import main.entity.BackVals;
-import main.entity.Document;
-import main.entity.TypeOfDocument;
-import main.service.DocumentService;
-import main.service.PrivilegesService;
-import main.service.TypeOfDocumentService;
-import main.service.UserService;
+import main.entity.*;
+import main.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +22,9 @@ public class BookeepingController {
 
     @Autowired
     TypeOfDocumentService typeOfDocumentService;
+
+    @Autowired
+    ProductionService productionService;
 
 
     @GetMapping("/getAll")
@@ -61,5 +59,27 @@ public class BookeepingController {
         System.out.println();
         return backVals;
 
+    }
+
+    @GetMapping("/getShops")
+    List<Shop> getShops(@RequestParam("name") String name){
+        System.out.println(name);
+        TypeOfDocument typeOfDocument = typeOfDocumentService.getByName(name);
+        Long id = typeOfDocument.getId();
+        System.out.println(id);
+        List<Production> productions = productionService.getProductionByType(id);
+        Shop shop;
+        List<Shop> shops = new ArrayList<>();
+        for (Production production : productions) {
+            shop = new Shop();
+            shop.setCost(production.getCost());
+            shop.setId(production.getBookkeepingId());
+            shop.setQuantity(production.getQuantity());
+            System.out.println(production.getCost());
+            System.out.println(production.getTime());
+            shop.setTime(production.getTime());
+            shops.add(shop);
+        }
+        return shops;
     }
 }

@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface TypeOfDocumentRepository extends JpaRepository<TypeOfDocument, Long> {
     TypeOfDocument getTypeOfDocumentById(Long id);
     List<TypeOfDocument> getTypeOfDocumentsByInstanceId(Long instanceId);
-    Long getTypeOfDocumentIdByName(String name);
+    TypeOfDocument getTypeOfDocumentByName(String name);
 }

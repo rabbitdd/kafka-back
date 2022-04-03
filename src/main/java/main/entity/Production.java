@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.math.BigDecimal;
+import java.sql.Time;
 import java.util.Objects;
 
 @Entity(name = "Production")
@@ -34,12 +35,11 @@ public class Production {
     @Column(name = "cost")
     private BigDecimal cost;
 
-    @Transient
     @Column(name = "time")
-    private PGInterval time;
+    private Time time;
 
     // TODO: 15.03.2022 fix return null time interval 
-    public PGInterval getTime() {
+    public Time getTime() {
         return time;
     }
 
