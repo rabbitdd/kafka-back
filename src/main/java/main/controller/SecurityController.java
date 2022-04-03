@@ -35,6 +35,7 @@ public class SecurityController {
         System.out.println(user.login);
         UserDetails securityUser = customerUserDetailService.loadUserByUsername(user.login);
         if (securityUser != null) {
+            System.out.println(securityUser.getPassword());
             if (securityUser.getPassword().equals(user.password)) {
                 System.out.println("User exist");
                 return "{\"token\": \"true\"}";
