@@ -45,4 +45,8 @@ public class PrivilegesService {
     public List<Privileges> getAll(int sale){
         return privilegesRepository.getPrivilegesBySale(sale);
     }
+
+    public Privileges getPrivilegesById(Long id){
+        return privilegesRepository.getPrivilegesById(id);
+    }
 }
