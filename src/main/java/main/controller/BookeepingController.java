@@ -1,5 +1,8 @@
 package main.controller;
 
+import main.entity.BackVals;
+import main.entity.Document;
+import main.entity.TypeOfDocument;
 import main.entity.*;
 import main.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,7 @@ public class BookeepingController {
     TypeOfDocumentService typeOfDocumentService;
 
     @Autowired
+    BookkeepingService bookkeepingService;
     ProductionService productionService;
 
 
@@ -58,7 +62,12 @@ public class BookeepingController {
         }
         System.out.println();
         return backVals;
+    }
 
+
+    @GetMapping("/buy")
+    public boolean buyDocument(@RequestParam String login, @RequestParam Long bookkeepingId, @RequestParam String name) {
+        return bookkeepingService.buyDocument(login, bookkeepingId, name);
     }
 
     @GetMapping("/getShops")

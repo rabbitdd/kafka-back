@@ -3,6 +3,7 @@ package main.controller;
 import main.entity.Official;
 import main.entity.Queue;
 import main.entity.QueueBack;
+import main.entity.User;
 import main.repository.DocumentRepository;
 import main.service.OfficialService;
 import main.service.QueueService;
@@ -61,5 +62,20 @@ public class QueueController {
             queueBacks.add(qb);
         }
         return queueBacks;
+    }
+
+    @GetMapping("/queue/official")
+    public List<Queue> getOfficialQueue(@RequestParam String login) {
+        return queueService.getQueueByOfficialUsername(login);
+    }
+
+    @GetMapping("/queue/official/firstUser")
+    public User getFirstUserFromOfficialQueue(@RequestParam String login) {
+        return queueService.getFirstUserFromQueueByOfficialUsername(login);
+    }
+
+    @GetMapping("/queue/advance")
+    public Boolean getAdvanceQueue(@RequestParam Long officialId) {
+        return queueService.advanceQueue(officialId);
     }
 }

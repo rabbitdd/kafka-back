@@ -27,33 +27,35 @@ public class SignaturesController {
     ParameterService parameterService;
     @Autowired
     SignaturesService signaturesService;
+    @Autowired
+    QueueService queueService;
 
-//    @PostMapping
-//    String makeSign(@RequestBody Sign sign){
-//        Long idSign;
-//        Official official = officialService.getOfficialByLogin(sign.loginOff);
-//        List<Document> documentList = documentService.getAllDocumentsByUserId(sign.userId);
-//        List<Parameter> parameters = new ArrayList<>();
-//        Parameter parameter;
-//        for (Document document : documentList) {
-//            if (document.getParameters_id() != null) {
-//                parameter = parameterService.getByParametrId(document.getParameters_id());
-//                parameters.add(parameter);
-//            }
-//        }
-//        List<Signature> signatures;
-//        for(int i = 0; i < parameters.size();i++){
-//            signatures = signaturesService.getSignsById(parameters.get(i).getId());
-//            for (Signature signature : signatures) {
-//                if (signature.getOfficialId().equals(official.getId()) && !signatures.get(i).getIsSubscribed()) {
-//                    idSign = signature.getId();
-//                    break;
-//                }
-//            }
-//        }
-//
-//        return "true";
-//    }
+    @PostMapping
+    Boolean makeSign(@RequestBody Sign sign){
+        Long idSign;
+        Official official = officialService.getOfficialByLogin(sign.loginOff);
+        List<Document> documentList = documentService.getAllDocumentsByUserId(sign.userId);
+        List<Parameter> parameters = new ArrayList<>();
+        Parameter parameter;
+        for (Document document : documentList) {
+            if (document.getParameters_id() != null) {
+                parameter = parameterService.getByParametrId(document.getParameters_id());
+                parameters.add(parameter);
+            }
+        }
+        List<Signature> signatures;
+        for(int i = 0; i < parameters.size();i++){
+            signatures = signaturesService.getSignsById(parameters.get(i).getId());
+            for (Signature signature : signatures) {
+                if (signature.getOfficialId().equals(official.getId()) && !signatures.get(i).getIsSubscribed()) {
+                    idSign = signature.getId();
+                    signaturesService.save(idSign);
+                    break;
+                }
+            }
+        }
+        return queueService.advanceQueue(official.getId());
+    }
 
     @Data
     @NoArgsConstructor

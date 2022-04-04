@@ -19,4 +19,10 @@ public class SignaturesService {
     public List<Signature> getSignsById(Long id){
         return signaturesRepository.getSignaturesByParametersId(id);
     }
+
+    public void save(Long signId) {
+        Signature signature = signaturesRepository.getSignatureById(signId);
+        signature.setIsSubscribed(true);
+        signaturesRepository.save(signature);
+    }
 }

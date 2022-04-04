@@ -18,7 +18,7 @@ public class OfficialService {
         return officialRepository.getOfficialById(id);
     }
 
-//    public Official getOfficialByLogin(String login){
-//        return officialRepository.getOfficialByLogin(login);
-//    }
+    public Official getOfficialByLogin(String login){
+        return officialRepository.getOfficialByLogin(login);
+    }
 }
