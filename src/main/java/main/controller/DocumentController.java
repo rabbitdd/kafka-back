@@ -3,10 +3,7 @@ package main.controller;
 
 import main.entity.*;
 import main.repository.DocumentRepository;
-import main.service.DocumentService;
-import main.service.PrivilegesService;
-import main.service.TypeOfDocumentService;
-import main.service.UserService;
+import main.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +26,15 @@ public class DocumentController {
 
     @Autowired
     PrivilegesService privilegesService;
+
+    @Autowired
+    SignaturesService signaturesService;
+
+    @Autowired
+    OfficialService officialService;
+
+    @Autowired
+    StatusService statusService;
 
 
     @GetMapping("/document/get")
@@ -92,6 +98,55 @@ public class DocumentController {
         }
         return backVals;
     }
+
+    @GetMapping("/getDock")
+    DockInfo getDockInfo(@RequestParam("id") Long id){
+        System.out.println(id);
+        DockInfo dockInfo = new DockInfo();
+        Document document = documentService.getDocumentById(id);
+        dockInfo.setId(document.getId());
+        dockInfo.setByWho(document.getIssuedByWhom());
+        dockInfo.setIssue(document.getDateOfIssue());
+        dockInfo.setValidity(document.getValidity());
+        TypeOfDocument typeOfDocument = typeOfDocumentService.getById(document.getTypeOfDocumentId());
+        dockInfo.setName(typeOfDocument.getName());
+        String lgot = "";
+        Privileges privileges = privilegesService.getPrivilegesById(typeOfDocument.getPrivilegesId());
+        lgot += "Скидка = " + privileges.getSale() + "\n" + "Приоритет = " + privileges.getPriority() + "\n";
+        dockInfo.setLgot(lgot);
+        if(document.getParameters_id() == null){
+            dockInfo.setPod("Подписи не требуются");
+            dockInfo.setPodtver("Подтверждения не требуется");
+        }
+        else{
+            String pod = "";
+            List<Signature> signatures = signaturesService.getSignsById(document.getParameters_id());
+            Official official;
+            for (Signature signature : signatures) {
+                official = officialService.getOfficialById(signature.getOfficialId());
+                pod += official.getSurname() + " " + official.getName();
+                if (signature.getIsSubscribed()) {
+                    pod += " подписал";
+                } else {
+                    pod += " не подписал";
+                }
+                pod += "\n";
+            }
+            dockInfo.setPod(pod);
+            String podtver = "";
+            Status status = statusService.getStatusByParamId(document.getParameters_id());
+            if(status != null && status.getIsValid()){
+                podtver = "Все четко";
+            }
+            else{
+                podtver = "Не подтверждено";
+            }
+            dockInfo.setPodtver(podtver);
+
+        }
+        return dockInfo;
+    }
+
 
 //    @GetMapping("/getPod")
 //    List<BackValsTypes> getPodpicy(@RequestParam("login") String id) {

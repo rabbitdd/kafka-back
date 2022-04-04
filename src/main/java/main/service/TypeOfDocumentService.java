@@ -50,4 +50,8 @@ public class TypeOfDocumentService {
     public TypeOfDocument getById(long id){
         return typeOfDocumentRepository.getTypeOfDocumentById(id);
     }
+
+    public TypeOfDocument getByName(String name){
+        return typeOfDocumentRepository.getTypeOfDocumentByName(name);
+    }
 }

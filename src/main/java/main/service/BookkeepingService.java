@@ -4,6 +4,7 @@ import main.entity.*;
 import main.repository.*;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class BookkeepingService {
 
     public boolean buyDocument(String login, Long bookkeepingId, String name) {
         Bookkeeping bookkeeping = bookkeepingRepository.getBookkeepingById(bookkeepingId);
-        Double userMoney;
+        BigDecimal userMoney;
         if (userRepository.getUserByLogin(login).isPresent()) {
             User user = userRepository.getUserByLogin(login).get();
             userMoney = user.getMoney();
@@ -46,7 +47,7 @@ public class BookkeepingService {
             //System.out.println(typeOfDocument.getId());
             Production production = productionRepository.getProductionByBookkeepingIdAndAndTypeOfDocumentId(bookkeepingId, typeOfDocument.getId());
             //System.out.println(production.getId());
-            if (userMoney - production.getCost() >= 0) {
+            if (userMoney.subtract(production.getCost()).doubleValue() >= 0) {
                 Signature signatureOne = new Signature();
                 Signature signatureTwo = new Signature();
                 Signature signatureThree = new Signature();

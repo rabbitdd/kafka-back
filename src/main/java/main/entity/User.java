@@ -1,6 +1,7 @@
 package main.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -25,7 +26,7 @@ public class User {
         this.surname = surname;
     }
 
-    public void setMoney(Double money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 
@@ -37,7 +38,7 @@ public class User {
         this.instance_id = instance_id;
     }
 
-    public User(Long id, String name, String surname, Double money, Timestamp time_result, Long instance_id) {
+    public User(Long id, String name, String surname, BigDecimal money, Timestamp time_result, Long instance_id) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -53,13 +54,13 @@ public class User {
     private String surname;
 
     @Column(name = "money")
-    private Double money;
+    private BigDecimal money;
 
     public Long getId() {
         return id;
     }
 
-    public Double getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 

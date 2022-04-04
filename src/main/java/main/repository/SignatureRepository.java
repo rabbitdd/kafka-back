@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 import java.util.List;
 
+import java.util.ArrayList;
+
 public interface SignatureRepository extends JpaRepository<Signature, Long> {
     Signature getSignatureById(Long id);
 
@@ -16,4 +18,5 @@ public interface SignatureRepository extends JpaRepository<Signature, Long> {
     @Transactional
     @Procedure(procedureName = "verification_of_signatures")
     boolean verificationOfSignatures(@Param("parameters_id") Long parametersId);
+    ArrayList<Signature> getSignaturesByParametersId(Long id);
 }

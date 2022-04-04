@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -16,7 +17,7 @@ public class RegUserForm {
     private String password;
     private String name;
     private String surname;
-    private long money;
+    private BigDecimal money;
 
     public String getUsername() {
         return username;
@@ -50,11 +51,11 @@ public class RegUserForm {
         this.surname = surname;
     }
 
-    public long getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(long money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 

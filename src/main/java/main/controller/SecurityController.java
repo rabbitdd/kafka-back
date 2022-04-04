@@ -55,7 +55,7 @@ public class SecurityController {
         us.setInstance_id((long) 1);
         us.setActive(user.isActive());
         us.setLogin(user.getUsername());
-        us.setMoney((double) user.getMoney());
+        us.setMoney(user.getMoney());
         us.setName(user.getName());
         String hashPassword = new BCryptPasswordEncoder(12).encode(user.getPassword());
         us.setPassword(hashPassword);
