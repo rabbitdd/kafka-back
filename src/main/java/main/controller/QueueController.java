@@ -1,13 +1,9 @@
 package main.controller;
 
-import main.entity.Official;
-import main.entity.Queue;
-import main.entity.QueueBack;
-import main.entity.User;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+import main.entity.*;
 import main.repository.DocumentRepository;
-import main.service.OfficialService;
-import main.service.QueueService;
-import main.service.UserService;
+import main.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/queue")
@@ -29,6 +26,18 @@ public class QueueController {
 
     @Autowired
     OfficialService officialService;
+
+    @Autowired
+    DocumentService documentService;
+
+    @Autowired
+    SignaturesService signaturesService;
+
+    @Autowired
+    ParameterService parameterService;
+
+    @Autowired
+    TypeOfDocumentService typeOfDocumentService;
 
     @GetMapping("/queue/get")
     String getQueue(@RequestParam Long id) {
@@ -64,14 +73,62 @@ public class QueueController {
         return queueBacks;
     }
 
-    @GetMapping("/queue/official")
-    public List<Queue> getOfficialQueue(@RequestParam String login) {
-        return queueService.getQueueByOfficialUsername(login);
+    @GetMapping("official")
+    public List<BackQueue> getOfficialQueue(@RequestParam String login) {
+        System.out.println(login);
+        List<Queue> queues = queueService.getQueueByOfficialUsername(login);
+        List<BackQueue> qu = new ArrayList<>();
+        BackQueue bq;
+        for (Queue queue : queues) {
+            bq = new BackQueue();
+            User user = userService.getUserById(queue.getUserId());
+            bq.setName(user.getName() + " " + user.getSurname());
+            bq.setId(user.getId());
+            bq.setPlace(queue.getPlace());
+            bq.setPrior(queue.getPriority());
+            qu.add(bq);
+        }
+        return qu;
+
     }
 
-    @GetMapping("/queue/official/firstUser")
-    public User getFirstUserFromOfficialQueue(@RequestParam String login) {
-        return queueService.getFirstUserFromQueueByOfficialUsername(login);
+    @GetMapping("/firstUser")
+    public FirstUser getFirstUserFromOfficialQueue(@RequestParam String login) {
+        System.out.println(login);
+        User user = queueService.getFirstUserFromQueueByOfficialUsername(login);
+        FirstUser firstUser = new FirstUser();
+        firstUser.setId(user.getId());
+        firstUser.setName(user.getName());
+        firstUser.setSurname(user.getSurname());
+        Long idSign;
+        Official official = officialService.getOfficialByLogin(login);
+        List<Document> documentList = documentService.getAllDocumentsByUserId(user.getId());
+        List<Parameter> parameters = new ArrayList<>();
+        Parameter parameter;
+        for (Document document : documentList) {
+            if (document.getParameters_id() != null) {
+                parameter = parameterService.getByParametrId(document.getParameters_id());
+                parameters.add(parameter);
+            }
+        }
+        List<Signature> signatures;
+        Signature sign = new Signature();
+        for (Parameter value : parameters) {
+            signatures = signaturesService.getSignsById(value.getId());
+            for (Signature signature : signatures) {
+                if (signature.getOfficialId().equals(official.getId()) && !signature.getIsSubscribed()) {
+                    sign = signature;
+                    break;
+                }
+            }
+        }
+        for (Document document : documentList) {
+            if (document.getParameters_id() != null && document.getParameters_id().equals(sign.getParametersId())) {
+                firstUser.setDockname(typeOfDocumentService.getById(document.getTypeOfDocumentId()).getName());
+                break;
+            }
+        }
+        return firstUser;
     }
 
     @GetMapping("/queue/advance")

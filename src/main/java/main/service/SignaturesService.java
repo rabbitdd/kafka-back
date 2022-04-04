@@ -25,4 +25,8 @@ public class SignaturesService {
         signature.setIsSubscribed(true);
         signaturesRepository.save(signature);
     }
+
+    public  List<Signature> getSignsByOffId(Long id){
+        return signaturesRepository.getSignatureByOfficialId(id);
+    }
 }
