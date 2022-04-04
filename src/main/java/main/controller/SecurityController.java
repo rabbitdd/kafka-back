@@ -83,17 +83,12 @@ public class SecurityController {
         System.out.println("****");
         System.out.println(user.login);
         Official official = customerUserDetailService.loadUserByUsernameO(user.getLogin());
-        if (official != null) {
-            System.out.println(official.getPassword());
-            if (official.getPassword().equals(user.password)) {
-                System.out.println("User exist");
-                return "{\"token\": \"true\"}";
-            }
-            return "{\"token\": \"bad\"}";
-        } else {
-            System.out.println("User doesn't exist");
-            System.out.println("POST request ... ");
-            return "{\"token\": \"bad\"}";
+        System.out.println(official.getName() + " " + official.getSurname());
+        System.out.println(official.getPassword());
+        if (official.getPassword().equals(user.password)) {
+            System.out.println("User exist");
+            return "{\"token\": \"true\"}";
         }
+        return "{\"token\": \"bad\"}";
     }
 }

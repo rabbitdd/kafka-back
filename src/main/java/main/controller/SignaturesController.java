@@ -30,8 +30,9 @@ public class SignaturesController {
     @Autowired
     QueueService queueService;
 
-    @PostMapping
+    @PostMapping("/makeSign")
     Boolean makeSign(@RequestBody Sign sign){
+        System.out.println(sign.loginOff);
         Long idSign;
         Official official = officialService.getOfficialByLogin(sign.loginOff);
         List<Document> documentList = documentService.getAllDocumentsByUserId(sign.userId);
@@ -44,10 +45,10 @@ public class SignaturesController {
             }
         }
         List<Signature> signatures;
-        for(int i = 0; i < parameters.size();i++){
-            signatures = signaturesService.getSignsById(parameters.get(i).getId());
+        for (Parameter value : parameters) {
+            signatures = signaturesService.getSignsById(value.getId());
             for (Signature signature : signatures) {
-                if (signature.getOfficialId().equals(official.getId()) && !signatures.get(i).getIsSubscribed()) {
+                if (signature.getOfficialId().equals(official.getId()) && !signature.getIsSubscribed()) {
                     idSign = signature.getId();
                     signaturesService.save(idSign);
                     break;
