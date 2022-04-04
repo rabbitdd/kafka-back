@@ -28,6 +28,8 @@ public class BookeepingController {
 
     @Autowired
     BookkeepingService bookkeepingService;
+
+    @Autowired
     ProductionService productionService;
 
 
@@ -67,6 +69,7 @@ public class BookeepingController {
 
     @GetMapping("/buy")
     public boolean buyDocument(@RequestParam String login, @RequestParam Long bookkeepingId, @RequestParam String name) {
+        System.out.println(name + " " + login + " " + bookkeepingId);
         return bookkeepingService.buyDocument(login, bookkeepingId, name);
     }
 
@@ -84,9 +87,11 @@ public class BookeepingController {
             shop.setCost(production.getCost());
             shop.setId(production.getBookkeepingId());
             shop.setQuantity(production.getQuantity());
-            System.out.println(production.getCost());
-            System.out.println(production.getTime());
-            shop.setTime(production.getTime());
+            System.out.println(production.getId());
+            String s = String.format("%d:%02d:%02d",production.getTime().getSeconds() / 3600, (production.getTime().getSeconds() % 3600)
+                    / 60, (production.getTime().getSeconds() % 60));
+            System.out.println(s);
+            shop.setTime(s);
             shops.add(shop);
         }
         return shops;

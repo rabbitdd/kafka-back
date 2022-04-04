@@ -1,6 +1,8 @@
 package main.service;
 
+import main.entity.Official;
 import main.entity.User;
+import main.repository.OfficialRepository;
 import main.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class CustomerUserDetailService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final OfficialRepository officialRepository;
 
-    public CustomerUserDetailService(UserRepository userRepository) {
+    public CustomerUserDetailService(UserRepository userRepository, OfficialRepository officialRepository) {
         this.userRepository = userRepository;
+        this.officialRepository = officialRepository;
     }
 
     @Override
@@ -33,6 +37,15 @@ public class CustomerUserDetailService implements UserDetailsService {
         List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
 
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), authorities);
+    }
+
+    public Official loadUserByUsernameO(String login) throws UsernameNotFoundException {
+
+        Official officialOptional = officialRepository.getOfficialByLogin(login);
+        if(officialOptional == null) {
+            throw new UsernameNotFoundException("Official not found");
+        }
+        return officialOptional;
     }
 
     public String addUser(User user) {

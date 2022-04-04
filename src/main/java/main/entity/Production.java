@@ -1,8 +1,10 @@
 package main.entity;
 
 
+import com.vladmihalcea.hibernate.type.interval.PostgreSQLIntervalType;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.TypeDef;
 import org.postgresql.util.PGInterval;
 
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.sql.Time;
+import java.time.Duration;
 import java.util.Objects;
 
 @Entity(name = "Production")
@@ -18,6 +21,10 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@TypeDef(
+        typeClass = PostgreSQLIntervalType.class,
+        defaultForType = Duration.class
+)
 public class Production {
     @Id
     @Column(name = "production_id")
@@ -36,10 +43,11 @@ public class Production {
     private BigDecimal cost;
 
     @Column(name = "time")
-    private Time time;
+    private Duration time;
+
 
     // TODO: 15.03.2022 fix return null time interval 
-    public Time getTime() {
+    public Duration getTime() {
         return time;
     }
 

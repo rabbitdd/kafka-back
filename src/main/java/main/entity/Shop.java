@@ -34,16 +34,16 @@ public class Shop {
         this.cost = cost;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
     private Long id;
     private Long quantity;
     private BigDecimal cost;
-    private Time time;
+    private String time;
 }

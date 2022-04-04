@@ -10,5 +10,4 @@ public interface TypeOfDocumentRepository extends JpaRepository<TypeOfDocument, 
     TypeOfDocument getTypeOfDocumentById(Long id);
     TypeOfDocument getTypeOfDocumentByName(String name);
     List<TypeOfDocument> getTypeOfDocumentsByInstanceId(Long instanceId);
-    TypeOfDocument getTypeOfDocumentByName(String name);
 }

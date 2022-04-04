@@ -2,10 +2,7 @@ package main.controller;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import main.entity.DockumentToAdd;
-import main.entity.Document;
-import main.entity.RegUserForm;
-import main.entity.User;
+import main.entity.*;
 import main.service.CustomerUserDetailService;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,5 +76,24 @@ public class SecurityController {
     public static class AuthUser {
         String login;
         String password;
+    }
+
+    @PostMapping(value = "/authO")
+    public String getLoginPageO(@RequestBody AuthUser user) {
+        System.out.println("****");
+        System.out.println(user.login);
+        Official official = customerUserDetailService.loadUserByUsernameO(user.getLogin());
+        if (official != null) {
+            System.out.println(official.getPassword());
+            if (official.getPassword().equals(user.password)) {
+                System.out.println("User exist");
+                return "{\"token\": \"true\"}";
+            }
+            return "{\"token\": \"bad\"}";
+        } else {
+            System.out.println("User doesn't exist");
+            System.out.println("POST request ... ");
+            return "{\"token\": \"bad\"}";
+        }
     }
 }
