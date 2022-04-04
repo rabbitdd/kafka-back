@@ -27,9 +27,11 @@ public class SignaturesController {
     ParameterService parameterService;
     @Autowired
     SignaturesService signaturesService;
+    @Autowired
+    QueueService queueService;
 
     @PostMapping
-    String makeSign(@RequestBody Sign sign){
+    Boolean makeSign(@RequestBody Sign sign){
         Long idSign;
         Official official = officialService.getOfficialByLogin(sign.loginOff);
         List<Document> documentList = documentService.getAllDocumentsByUserId(sign.userId);
@@ -47,12 +49,12 @@ public class SignaturesController {
             for (Signature signature : signatures) {
                 if (signature.getOfficialId().equals(official.getId()) && !signatures.get(i).getIsSubscribed()) {
                     idSign = signature.getId();
+                    signaturesService.save(idSign);
                     break;
                 }
             }
         }
-
-        return "true";
+        return queueService.advanceQueue(official.getId());
     }
 
     @Data

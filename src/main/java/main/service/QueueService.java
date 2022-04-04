@@ -70,26 +70,6 @@ public class QueueService {
     }
 
     public Boolean advanceQueue(Long officialId) {
-//        Official official = officialRepository.getOfficialById(officialId);
-//        List<Signature> signatures = signatureRepository.getSignatureByOfficialId(officialId);
-//        User user = this.getFirstUserFromQueueByOfficialUsername(official.getLogin());
-//        ArrayList<Document> documents = new ArrayList<>();
-//
-//        for (Signature sign : signatures) {
-//            ArrayList<Document> documents1 = documentRepository.
-//        }
-
-
-
-
-//        List<Document> documentList = documentRepository.getDocumentsByUserId(user.getId());
-//        for (Document document : documentList) {
-//            Parameter parameter = parameterRepository.getParameterById(document.getParameters_id());
-//            if (Objects.equals(signatureRepository.getSignatureByOfficialId(officialId).getParametersId(), document.getParameters_id())) {
-//                Signature signature =
-//            }
-//        }
-
         return queueRepository.advanceQueue(officialId);
     }
 }
