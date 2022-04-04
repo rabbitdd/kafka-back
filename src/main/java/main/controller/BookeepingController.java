@@ -3,10 +3,7 @@ package main.controller;
 import main.entity.BackVals;
 import main.entity.Document;
 import main.entity.TypeOfDocument;
-import main.service.DocumentService;
-import main.service.PrivilegesService;
-import main.service.TypeOfDocumentService;
-import main.service.UserService;
+import main.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +24,9 @@ public class BookeepingController {
 
     @Autowired
     TypeOfDocumentService typeOfDocumentService;
+
+    @Autowired
+    BookkeepingService bookkeepingService;
 
 
     @GetMapping("/getAll")
@@ -60,6 +60,13 @@ public class BookeepingController {
         }
         System.out.println();
         return backVals;
-
     }
+
+
+    @GetMapping("/buy")
+    public boolean buyDocument(@RequestParam String login, @RequestParam Long bookkeepingId, @RequestParam String name) {
+        return bookkeepingService.buyDocument(login, bookkeepingId, name);
+    }
+
+
 }

@@ -32,7 +32,7 @@ public class Production {
     private Long typeOfDocumentId;
 
     @Column(name = "cost")
-    private BigDecimal cost;
+    private Double cost;
 
     @Transient
     @Column(name = "time")
