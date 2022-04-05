@@ -45,15 +45,18 @@ public class SignaturesController {
             }
         }
         List<Signature> signatures;
+        boolean flag = false;
         for (Parameter value : parameters) {
             signatures = signaturesService.getSignsById(value.getId());
             for (Signature signature : signatures) {
                 if (signature.getOfficialId().equals(official.getId()) && !signature.getIsSubscribed()) {
                     idSign = signature.getId();
                     signaturesService.save(idSign);
-                    break;
+                    flag = true;
                 }
+                if(flag) break;
             }
+            if(flag) break;
         }
         return queueService.advanceQueue(official.getId());
     }
