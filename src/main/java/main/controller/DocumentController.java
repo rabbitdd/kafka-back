@@ -230,6 +230,12 @@ public class DocumentController {
     }
 
 
+    @GetMapping("/addForReview")
+    public void addForReview(@RequestParam Long parameterId) {
+        documentService.addForReview(parameterId);
+    }
+
+
 
 
 }

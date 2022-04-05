@@ -18,4 +18,8 @@ public interface DocumentRepository extends JpaRepository<Document, Long> {
     @Transactional
     @Procedure(procedureName = "calculate_sale")
     Long calculateSale(@Param("user_id") Long userId);
+
+    @Transactional
+    @Procedure(procedureName = "add_for_review")
+    void addForReview(@Param("parameter_id") Long parameterId);
 }

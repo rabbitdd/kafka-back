@@ -1,14 +1,10 @@
 package main.service;
 
-import main.entity.Checker;
-import main.entity.Instance;
-import main.entity.Official;
-import main.entity.Prosecutor;
-import main.repository.CheckerRepository;
-import main.repository.InstanceRepository;
-import main.repository.OfficialRepository;
-import main.repository.ProsecutorRepository;
+import main.entity.*;
+import main.repository.*;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class InstanceService {
@@ -17,12 +13,14 @@ public class InstanceService {
     private final OfficialRepository officialRepository;
     private final InstanceRepository instanceRepository;
     private final CheckerRepository checkerRepository;
+    private final UserRepository userRepository;
 
-    public InstanceService(ProsecutorRepository prosecutorRepository, OfficialRepository officialRepository, InstanceRepository instanceRepository, CheckerRepository checkerRepository) {
+    public InstanceService(ProsecutorRepository prosecutorRepository, OfficialRepository officialRepository, InstanceRepository instanceRepository, CheckerRepository checkerRepository, UserRepository userRepository) {
         this.prosecutorRepository = prosecutorRepository;
         this.officialRepository = officialRepository;
         this.instanceRepository = instanceRepository;
         this.checkerRepository = checkerRepository;
+        this.userRepository = userRepository;
     }
 
     public Prosecutor getProsecutorId(Long id) {
@@ -38,6 +36,15 @@ public class InstanceService {
 
     public Checker getCheckerId(Long id) {
         return checkerRepository.getCheckerById(id);
+    }
+
+    public Boolean transferToTheNextLevel(String login) {
+        Optional<User> user = userRepository.getUserByLogin(login);
+        if (user.isPresent()) {
+            User user1 = user.get();
+            return instanceRepository.transferToTheNextLevel(user1.getId());
+        }
+        return false;
     }
 
 }
