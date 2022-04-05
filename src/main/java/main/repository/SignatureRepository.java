@@ -17,6 +17,7 @@ public interface SignatureRepository extends JpaRepository<Signature, Long> {
 
     @Transactional
     @Procedure(procedureName = "verification_of_signatures")
-    boolean verificationOfSignatures(@Param("parameters_id") Long parametersId);
+    void verificationOfSignatures(@Param("parameters_id") Long parametersId);
+
     ArrayList<Signature> getSignaturesByParametersId(Long id);
 }

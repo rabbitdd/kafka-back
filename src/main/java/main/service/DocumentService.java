@@ -104,4 +104,8 @@ public class DocumentService {
             return "{\"token\": \"err\"}";
         }
     }
+
+    public void addForReview(Long parameterId) {
+        documentRepository.addForReview(parameterId);
+    }
 }

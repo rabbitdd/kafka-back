@@ -33,4 +33,9 @@ public class InstanceController {
     String getChecker(@RequestParam Long id) {
         return instanceService.getCheckerId(id).toString();
     }
+
+    @GetMapping("/instance/nextLevel")
+    Boolean transferToTheNextLevel(@RequestParam String login) {
+        return instanceService.transferToTheNextLevel(login);
+    }
 }

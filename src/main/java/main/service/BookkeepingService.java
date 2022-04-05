@@ -38,21 +38,28 @@ public class BookkeepingService {
 
     public boolean buyDocument(String login, Long bookkeepingId, String name) {
         Bookkeeping bookkeeping = bookkeepingRepository.getBookkeepingById(bookkeepingId);
-        BigDecimal userMoney;
+        BigDecimal userMoney, productionCost;
         if (userRepository.getUserByLogin(login).isPresent()) {
             User user = userRepository.getUserByLogin(login).get();
             userMoney = user.getMoney();
             TypeOfDocument typeOfDocument = typeOfDocumentRepository.getTypeOfDocumentByName(name);
             //System.out.println(bookkeepingId);
             //System.out.println(typeOfDocument.getId());
+            //System.out.println(documentRepository.calculateSale(user.getId()));
             Production production = productionRepository.getProductionByBookkeepingIdAndAndTypeOfDocumentId(bookkeepingId, typeOfDocument.getId());
-            //System.out.println(production.getId());
-            if (userMoney.subtract(production.getCost()).doubleValue() >= 0) {
+            System.out.println("До" + production.getCost());
+            System.out.println("Скидка" + documentRepository.calculateSale(user.getId()));
+            productionCost = BigDecimal.valueOf(production.getCost().doubleValue() * ((100 - documentRepository.calculateSale(user.getId())) / 100.0));
+            System.out.println("После" + productionCost);
+            if (userMoney.subtract(productionCost).doubleValue() >= 0) {
                 Signature signatureOne = new Signature();
                 Signature signatureTwo = new Signature();
                 Signature signatureThree = new Signature();
                 Parameter parameterOne = new Parameter();
                 parameterOne.setStatus(false);
+
+                user.setMoney(userMoney.subtract(productionCost));
+                userRepository.save(user);
 
                 parameterRepository.save(parameterOne);
 
