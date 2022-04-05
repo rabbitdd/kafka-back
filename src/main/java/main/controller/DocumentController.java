@@ -36,6 +36,9 @@ public class DocumentController {
     @Autowired
     StatusService statusService;
 
+    @Autowired
+    ParameterService parameterService;
+
 
     @GetMapping("/document/get")
     String sayDocument(@RequestParam Long id) {
@@ -179,6 +182,42 @@ public class DocumentController {
         return documentService.addDocument(document1);
     }
 
+    @GetMapping("/getAllReference")
+    List<Reference> getAllReference(@RequestParam String login){
+        System.out.println(login);
+        long idd = userService.getUserId(login);
+        List<Reference> references = new ArrayList<>();
+        List<Document> documents = documentService.getAllDocumentsByUserId(idd);
+        for (Document document : documents) {
+            System.out.println(document.getId());
+            if (document.getParameters_id() != null) {
+                Parameter parameter = parameterService.getByParametrId(document.getParameters_id());
+                TypeOfDocument typeOfDocument = typeOfDocumentService.getById(document.getTypeOfDocumentId());
+                Reference reference = new Reference();
+                reference.setId(parameter.getId());
+                reference.setName(typeOfDocument.getName());
+                if (parameter.getStatus()) {
+                    reference.setSign("Подписано");
+                    Status status = statusService.getStatusByParamId(parameter.getId());
+                    if (status != null) {
+                        if (status.getIsValid()) {
+                            reference.setCheck("Проверено");
+                        } else {
+                            reference.setCheck("Не проверено");
+                        }
+                    } else {
+                        reference.setCheck("Не добавлено на проверку");
+                    }
+                } else {
+                    reference.setSign("Не подписано");
+                    reference.setCheck("Не добавлено проверено");
+                }
+                references.add(reference);
+                System.out.println(reference.getName());
+            }
+        }
+        return references;
+    }
     @PostMapping ("/addDocumentPrior")
     String addDocumentPrior(@RequestBody DocumentToAddPrior document){
         long id1 = -1;
