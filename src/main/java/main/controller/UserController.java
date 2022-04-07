@@ -3,6 +3,8 @@ package main.controller;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.entity.User;
+import main.entity.UserInfo;
 import main.service.CustomerUserDetailService;
 import main.service.DocumentService;
 import main.service.UserService;
@@ -42,6 +44,21 @@ public class UserController {
         }
     }
 
+    @GetMapping("/instance")
+    UserInfo getInstance(@RequestParam String login){
+        Long user = userService.getUserId(login);
+        if(user != -1){
+            return null;
+        }
+        else{
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(userService.getUserById(user).getInstance_id());
+            userInfo.setMoney(userService.getUserById(user).getMoney());
+            return userInfo;
+        }
+
+
+    }
     @Data
     @NoArgsConstructor
     public static class AuthUser {

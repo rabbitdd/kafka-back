@@ -87,6 +87,7 @@ public class QueueController {
             bq.setPlace(queue.getPlace());
             bq.setPrior(queue.getPriority());
             qu.add(bq);
+            System.out.println(user.getName());
         }
         return qu;
 

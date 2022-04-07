@@ -34,8 +34,14 @@ public class InstanceController {
         return instanceService.getCheckerId(id).toString();
     }
 
-    @GetMapping("/instance/nextLevel")
-    Boolean transferToTheNextLevel(@RequestParam String login) {
-        return instanceService.transferToTheNextLevel(login);
+    @GetMapping("/nextLevel")
+    String transferToTheNextLevel(@RequestParam String login) {
+        boolean a = instanceService.transferToTheNextLevel(login);
+        if(a){
+            return "{\"token\": \"true\"}";
+        }
+        else{
+            return "{\"token\": \"false\"}";
+        }
     }
 }

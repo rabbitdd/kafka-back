@@ -25,7 +25,6 @@ public class SignaturesService {
         signature.setIsSubscribed(true);
         signaturesRepository.save(signature);
         signaturesRepository.verificationOfSignatures(signature.getParametersId());
-
     }
 
     public  List<Signature> getSignsByOffId(Long id){
